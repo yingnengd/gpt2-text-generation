@@ -3,6 +3,7 @@ import logging as log
 import pdb
 from collections import OrderedDict
 
+import transformers
 import numpy as np
 import torch
 import torch.nn as nn
