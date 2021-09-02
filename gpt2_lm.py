@@ -244,7 +244,7 @@ class GPT2LanguageModel(pl.LightningModule):
         """ Retrieves task specific dataset """
         return text_dataset(self.hparams, train, val, test)
 
-    @pl.data_loader
+#     @pl.data_loader
     def train_dataloader(self) -> DataLoader:
         """ Function that loads the train set. """
         self._train_dataset = self.__retrieve_dataset(val=False, test=False)[0]
@@ -255,7 +255,7 @@ class GPT2LanguageModel(pl.LightningModule):
             num_workers=self.hparams.loader_workers,
         )
 
-    @pl.data_loader
+#     @pl.data_loader
     def val_dataloader(self) -> DataLoader:
         """ Function that loads the validation set. """
         self._dev_dataset = self.__retrieve_dataset(train=False, test=False)[0]
@@ -266,7 +266,7 @@ class GPT2LanguageModel(pl.LightningModule):
             num_workers=self.hparams.loader_workers,
         )
 
-    @pl.data_loader
+#     @pl.data_loader
     def test_dataloader(self) -> DataLoader:
         """ Function that loads the validation set. """
         self._test_dataset = self.__retrieve_dataset(train=False, val=False)[0]
