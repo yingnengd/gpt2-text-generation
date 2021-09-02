@@ -40,7 +40,8 @@ class GPT2LanguageModel(pl.LightningModule):
 
     def __build_model(self) -> None:
         """ Init GPT2 model + tokenizer + language model head."""
-        self.gpt2 = AutoModel.from_pretrained("gpt2", output_hidden_states=True)
+        self.config = transformers.AutoConfig.from_pretrained("gpt2", output_hidden_states=True)
+        self.gpt2 = transformers.AutoModel.from_pretrained("gpt2", config=self.config)
         # Tokenizer
         self.tokenizer = GPT2TextEncoder("gpt2")
 
