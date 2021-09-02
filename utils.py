@@ -6,7 +6,7 @@ import torch
 import torch.nn.functional as F
 
 
-from pytorch_lightning.logging import TestTubeLogger
+from pytorch_lightning.loggers import TestTubeLogger
 
 
 def setup_testube_logger() -> TestTubeLogger:
